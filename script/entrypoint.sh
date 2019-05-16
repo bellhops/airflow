@@ -35,6 +35,23 @@ export \
   AIRFLOW__CORE__LOAD_EXAMPLES \
   AIRFLOW__CORE__SQL_ALCHEMY_CONN \
 
+sed -i "s/\[POSTGRES_USER\]/$POSTGRES_USER/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[POSTGRES_PASSWORD\]/$POSTGRES_PASSWORD/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[POSTGRES_HOST\]/$POSTGRES_HOST/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[POSTGRES_DB\]/$POSTGRES_DB/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[AIRFLOW_PARALLELISM\]/$AIRFLOW_PARALLELISM/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[DAG_CONCURRENCY\]/$DAG_CONCURRENCY/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[WEBSERVER_BASE_URL\]/$WEBSERVER_BASE_URL/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[SMTP_HOST\]/$SMTP_HOST/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[SMTP_USER\]/$SMTP_USER/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[SMTP_PASSWORD\]/$SMTP_PASSWORD/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[SMTP_PORT\]/$SMTP_PORT/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[SMTP_MAIL_FROM\]/$SMTP_MAIL_FROM/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[CELERYD_RESULT_BACKEND\]/$CELERYD_RESULT_BACKEND/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[CELERYD_CONCURRENCY\]/$CELERYD_CONCURRENCY/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[CELERY_BROKER_URL\]/$CELERY_BROKER_URL/g" /usr/local/airflow/airflow.cfg
+
+
 # Load DAGs exemples (default: Yes)
 if [[ -z "$AIRFLOW__CORE__LOAD_EXAMPLES" && "${LOAD_EX:=n}" == n ]]
 then

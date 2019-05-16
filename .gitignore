@@ -6,7 +6,6 @@
 .coverage
 airflow/www/static/coverage/
 airflow.db
-airflow.cfg
 airflow_login.py
 build
 cover

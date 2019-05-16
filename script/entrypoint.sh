@@ -58,15 +58,15 @@ then
   AIRFLOW__CORE__LOAD_EXAMPLES=False
 fi
 
-# Install custom python package if requirements.txt is present
-if [ -e "/requirements.txt" ]; then
-    $(which pip) install --user -r /requirements.txt
-fi
+# # Install custom python package if requirements.txt is present
+# if [ -e "/requirements.txt" ]; then
+#     $(which pip) install --user -r /requirements.txt
+# fi
 
-# Install custom priest python package if requirements.txt is present
-if [ -e "/usr/local/airflow/shared/priest/requirements.txt" ]; then
-    $(which pip) install --user -r /usr/local/airflow/shared/priest/requirements.txt
-fi
+# # Install custom priest python package if requirements.txt is present
+# if [ -e "/usr/local/airflow/shared/priest/requirements.txt" ]; then
+#     $(which pip) install --user -r /usr/local/airflow/shared/priest/requirements.txt
+# fi
 
 wait_for_port() {
   local name="$1" host="$2" port="$3"

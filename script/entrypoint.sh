@@ -50,6 +50,7 @@ sed -i "s/\[SMTP_MAIL_FROM\]/$SMTP_MAIL_FROM/g" /usr/local/airflow/airflow.cfg
 sed -i "s/\[CELERYD_RESULT_BACKEND\]/$CELERYD_RESULT_BACKEND/g" /usr/local/airflow/airflow.cfg
 sed -i "s/\[CELERYD_CONCURRENCY\]/$CELERYD_CONCURRENCY/g" /usr/local/airflow/airflow.cfg
 sed -i "s/\[CELERY_BROKER_URL\]/$CELERY_BROKER_URL/g" /usr/local/airflow/airflow.cfg
+sed -i "s/\[S3_BASE_LOG_FOLDER\]/$S3_BASE_LOG_FOLDER/g" /usr/local/airflow/airflow.cfg
 
 
 # Load DAGs exemples (default: Yes)

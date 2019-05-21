@@ -2,9 +2,7 @@
 
 TRY_LOOP="20"
 
-: "${REDIS_HOST:="redis"}"
-: "${REDIS_PORT:="6379"}"
-: "${REDIS_PASSWORD:=""}"
+: "${REDIS :="redis://redis:redis@redis:6379/1"}"
 
 : "${POSTGRES_HOST:="postgres"}"
 : "${POSTGRES_PORT:="5432"}"
@@ -92,8 +90,8 @@ wait_for_redis() {
 
 case "$1" in
   webserver)
-    wait_for_port "Postgres" "$POSTGRES_HOST" "$POSTGRES_PORT"
-    wait_for_redis
+    # wait_for_port "Postgres" "$POSTGRES_HOST" "$POSTGRES_PORT"
+    # wait_for_redis
     airflow initdb
     if [ "$AIRFLOW__CORE__EXECUTOR" = "LocalExecutor" ];
     then
@@ -103,14 +101,14 @@ case "$1" in
     exec airflow webserver
     ;;
   worker|scheduler)
-    wait_for_port "Postgres" "$POSTGRES_HOST" "$POSTGRES_PORT"
-    wait_for_redis
+    # wait_for_port "Postgres" "$POSTGRES_HOST" "$POSTGRES_PORT"
+    # wait_for_redis
     # To give the webserver time to run initdb.
     sleep 10
     exec airflow "$@"
     ;;
   flower)
-    wait_for_redis
+    # wait_for_redis
     exec airflow "$@"
     ;;
   version)

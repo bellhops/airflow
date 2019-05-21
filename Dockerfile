@@ -86,9 +86,6 @@ RUN set -ex \
         /usr/share/doc \
         /usr/share/doc-base
 
-COPY script/entrypoint.sh /entrypoint.sh
-COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
-
 RUN chown -R airflow: ${AIRFLOW_HOME}
 
 ## Add sudo permissions for debugging
